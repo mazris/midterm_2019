@@ -15,6 +15,32 @@ public class FortuneEmployee {
 	 **/
 	public static void main(String[] args) {
 
+     EmployeeInfo e = new EmployeeInfo("sonia",123);
+     EmployeeInfo e2 = new EmployeeInfo(124);
+     e.setSalary(e.calculateSalary());
+     e.setAddress("Astoria");
+     e.setPerformance(5);
+     e2.setSalary(e.calculateSalary()+2000);
+     e2.setName("rosh");
+     e.setAddress("new jersey");
+     e.setPerformance(10);
+     System.out.println("let's calculate pernsion of employees");
+     System.out.println("for "+e.employeeName());
+     System.out.println(e.employeeName()+"'s pension is "+e.calculateEmployeePension(10000));
+     //System.out.println("for "+e2.employeeName());
+     //System.out.println(e2.employeeName()+"'s pension is "+e2.calculateEmployeePension(10000));
+     //System.out.println("lets assign department for "+e.employeeName());
+     //e.assignDepartment();
+
+     System.out.println("lets calculate "+e.employeeName()+"'s bonus");
+    int bonus = e.calculateEmployeeBonus(e.getSalary(),e.getPerformance());
+    System.out.println(e.employeeName()+"'s bonus is : "+bonus);
+    EmployeeInfo.nestedClass nested = e.new nestedClass();
+    nested.display();
+    EmployeeInfo.nestedClass nested2 = e2.new nestedClass();
+    nested2.display();
+
+
 
 
 	}

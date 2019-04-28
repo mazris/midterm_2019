@@ -5,10 +5,7 @@ import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ProcessStudentInfo {
 
@@ -58,28 +55,37 @@ public class ProcessStudentInfo {
         seleniumStudents = xmlReader.parseData(tag, pathSelenium);
 
         //Parse Data using parseData method and then store data into Qtp ArrayList.
-
+        qtpStudents = xmlReader.parseData(tag, pathQtp);
         //add Selenium ArrayList data into map.
-
+        list.put("Selenium_Students", seleniumStudents);
         //add Qtp ArrayList data into map.
-
+        list.put("Qtp_Students", seleniumStudents);
 
         //Retrieve map data and display output.
-
+        Iterator it =list.entrySet().iterator();
+        while(it.hasNext()) {
+            System.out.println(it.next());
+        }
 
         //Store Qtp data into Qtp table in Database
-        connectToMongoDB.insertIntoMongoDB(seleniumStudents, "qtp");
+       // connectToMongoDB.insertIntoMongoDB(seleniumStudents, "qtp");
         //connectToSqlDB.insertDataFromArrayListToMySql(seleniumStudents, "qtp","studentList");
 
         //Store Selenium data into Selenium table in Database
-
+        //connectToMongoDB.insertIntoMongoDB(seleniumStudents, "selenium");
         //Retrieve Qtp students from Database
-        List<Student> stList = connectToMongoDB.readStudentListFromMongoDB("qtp");
+
+       /** List<Student> stList = connectToMongoDB.readStudentListFromMongoDB("qtp");
         for (Student st : stList) {
             System.out.println(st.getFirstName() + " " + st.getLastName() + " " + st.getScore() + " " + st.getId());
         }
-
+     **/
         //Retrieve Selenium students from Database
+        /** List<Student> stListSel = connectToMongoDB.readStudentListFromMongoDB("selenium");
+         for (Student st : stListSel) {
+         System.out.println(st.getFirstName() + " " + st.getLastName() + " " + st.getScore() + " " + st.getId());
+         }
+         **/
 
 
     }

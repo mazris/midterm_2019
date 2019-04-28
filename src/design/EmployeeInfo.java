@@ -2,7 +2,7 @@ package design;
 
 import java.util.Scanner;
 
-public class EmployeeInfo {
+public class EmployeeInfo extends Abstract_employee {
 
     /*This class can be implemented from Employee interface then add additional methods in EmployeeInfo class.
      * Also, Employee interface can be implemented into an abstract class.So create an Abstract class
@@ -20,7 +20,15 @@ public class EmployeeInfo {
     /*
      * declare few static and final fields and some non-static fields
      */
-    static String companyName;
+   private  static String companyName;
+    private int employeeId;
+    private String name;
+   private  int salary;
+   private int performance;
+    private static String address;
+    private  String department;
+
+
 
     /*
      * You must implement the logic for below 2 methods and
@@ -33,11 +41,12 @@ public class EmployeeInfo {
      * Must implement below constructor.
      */
     public EmployeeInfo(int employeeId) {
+      this.employeeId=employeeId;
 
     }
 
     public EmployeeInfo(String name, int employeeId) {
-
+           this.name=name; this.employeeId=employeeId;
     }
 
     /*
@@ -48,8 +57,70 @@ public class EmployeeInfo {
      * So you probably need to send 2 arguments.
      *
      */
-    public static int calculateEmployeeBonus(int numberOfYearsWithCompany) {
+    public String getCompanyName(){
+        return companyName;
+    }
+    public int employeeId() {
+
+        return this.employeeId;
+    }
+    public String employeeName() {
+
+        return this.name;
+    }
+    public int getSalary(){
+        return salary;
+    }
+    public int getPerformance(){
+        return performance;
+    }
+    public String getAddress(){
+        return address;
+    }
+    public String getDepartment(){
+        return department;
+    }
+    //Setter
+    public void setCompanyName(String companyName){
+        this.companyName=companyName;
+    }
+    public void setEmployeeId(int id){
+        this.employeeId=id;
+    }
+    public  void setName(String name){
+        this.name=name;
+    }
+    public void setPerformance(int performance){
+        this.performance=performance;
+    }
+    public void setAddress(String address){
+        this.address=address;
+    }
+    public void setDepartment(String dep){
+        this.department=dep;
+    }
+    public void assignDepartment() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println(" please enter the name of the department");
+        department= sc.nextLine();
+    }
+    public void assignDepartment(String department) {
+        this.department=department;
+    }
+    public void setSalary(int salary){
+        this.salary=salary;
+    }
+    public int calculateSalary() {
+        return super.calculateSalary();
+    }
+
+    public static int calculateEmployeeBonus( int salary , int performance) {
+
         int total = 0;
+        if(performance>=10) total= ((int) (salary*.1))*12;
+        else if(performance>=8) total= ((int) (salary*.08))*12;
+        else if(performance >=5) total= ((int) (salary*.05))*12;
+
         return total;
     }
 
@@ -59,10 +130,10 @@ public class EmployeeInfo {
      * Hints: pension will be 5% of the salary for 1 year, 10% for 2 years with the company and so on.
      *
      */
-    public static int calculateEmployeePension() {
+    public static int calculateEmployeePension(int salary) {
         int total = 0;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Please enter start date in format (example: May,2015): ");
+        System.out.println("Please enter start date in format (example: May,2015): of ");
         String joiningDate = sc.nextLine();
         System.out.println("Please enter today's date in format (example: August,2017): ");
         String todaysDate = sc.nextLine();
@@ -70,15 +141,28 @@ public class EmployeeInfo {
         String convertedTodaysDate = DateConversion.convertDate(todaysDate);
 
         //implement numbers of year from above two dates
-        //Calculate pension
+        String start = convertedJoiningDate.substring(3,convertedJoiningDate.length());
+        String actual = convertedTodaysDate.substring(3,convertedTodaysDate.length());
+        int numberOfYear = Integer.parseInt(actual)-Integer.parseInt(start);
 
+        //Calculate pension
+         if(numberOfYear==1){
+             total= (int) (salary*.05);
+
+         }else if(numberOfYear==2){
+             total = (int) (salary*.1);
+         } else if(numberOfYear>=3){
+             total = (int) (salary*.3);
+         }
 
         return total;
     }
 
+
     private static class DateConversion {
 
         public DateConversion(Months months) {
+
         }
 
         public static String convertDate(String date) {
@@ -135,6 +219,18 @@ public class EmployeeInfo {
             }
             return date;
 
+        }
+    }
+    public class nestedClass{
+        public void display(){
+            System.out.println("employee Info : ");
+            System.out.println("name : "+name);
+            System.out.println("ID : "+employeeId);
+            System.out.println("company name :"+companyName);
+            System.out.println("salary :"+salary);
+            System.out.println("performance : "+performance);
+            System.out.println("Address :  "+address);
+            System.out.println("Department : "+department);
         }
     }
 }

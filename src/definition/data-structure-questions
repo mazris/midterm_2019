@@ -1,34 +1,98 @@
 Please answer the below Data Structure Questions:
 
 why do we need data structure?
-A.
+A.we use it to organise data
+-array , file , record , table , tree ...
 
 
-What are the various operations that can be performed on different Data Structures?
-List out the areas in which data structures are applied extensively?
-what is an Array?
-what is the difference between the Array and ArrayList?
-what is LinkedList?
-How is an Array different from Linked List?
-what is queue?
-what is stack?
-what is FIFO and LIFO?
-what is the order of complexity?
-what is the best case to search an element from an array?
-what is the worst case to search an element from an array?
-what is tree in data structure?
-what is graph in data structure?
-what is the difference between the HashTable and HashMap?
-What are the major data structures used in the following areas : RDBMS, Network data model and Hierarchical data model.
-How HashMap works in java?
-What is ArrayIndexOutOfBoundsException in java? When it occurs?
-What are the different ways of copying an array into another array?
-What is difference between an array and a linked list?
-What is DFS and BFS?
-What is Recursion?
-What are linear and non linear data Structures?
-What is Big-(O)-notation?
-Outlined different kind of sorting algorithm with time complexity?
+**What are the various operations that can be performed on different Data Structures?
+traversing , searching , adding , removing , sorting
+
+**List out the areas in which data structures are applied extensively?
+database managment system ,compiler design , operating system
+
+**what is an Array?
+juste like simple variable it has a type but array stores multiples values (a block of memory)
+
+**what is the difference between the Array and ArrayList?
+in array we have to give the size at the creation and the size can't be expended
+in arraylist we can expend the size its dynamic but also arrylist are limited because values are stored one after the other
+so if at some point we don't have enough space to add another just after the previous one we can't add it
+
+**what is LinkedList?
+linkedlist are created to solve the arraylist capacity problem . it's juste like arraylist but the values
+are not followed by eachother they are instead linked using the previous address and the next address
+
+**How is an Array different from Linked List?
+in array we don't have links that linkes between elements
+but in linked list we have links to realte between elements previous and next
+
+**what is queue?
+designed to have elements stored at the end of the gueue and removed from the begining
+
+**what is stack?
+stack follows LIFO last in first out so data are inserted at the head and removed from the head
+
+**what is FIFO and LIFO?
+FIFO means first in first out data is inserted at the end of the list and removed from the begining
+LIFO means last in first out data is inserted at the beginig ot the list and removed from the begining
+
+**what is the order of complexity?
+certain mathematiacl expressions of the size of the input and the algorithm finishes between two factors of it
+
+**what is the best case to search an element from an array?
+-Binary search
+
+**what is the worst case to search an element from an array?
+Hypothetical data set
+
+**what is tree in data structure?
+is a hierarchical data structure using connected nodes
+
+**what is graph in data structure?
+items connected by edges each item is node
+
+**what is the difference between the HashTable and HashMap?
+Hashtable is synchronised but not Hashmap
+Hashtable does not allow null values but hashmap does
+
+**What are the major data structures used in the following areas : RDBMS, Network data model and Hierarchical data model.
+RDMS : array
+Network data : Graphs
+Hierarchical : tree
+
+**How HashMap works in java?
+hashmap stores keys and values
+
+**What is ArrayIndexOutOfBoundsException in java? When it occurs?
+is an exception thrown when java tries to acces an invalid index
+
+**What are the different ways of copying an array into another array?
+Object.clone()
+Arrays.copyOf()
+Arrays.copyOfRange()
+System.arrayopy()
+
+**What is difference between an array and a linked list?
+in array elements are independent but in linked list elements are related
+in array no pointers are used but in linked list we use pointer to relate between elements previous and next
+
+**What is DFS and BFS?
+Depth first search : method to explore a tree or graph we go untill the end of the branch and then go back to the begining and search with another node
+Breadth first search : method to explore tree and graph but this method we search all the nodes in one step and then go deeper with the next step
+
+**What is Recursion?
+is a process in which methods calls themselves in the body of the method
+
+**What are linear and non linear data Structures?
+linear : array , Stack , queue , linkedlist
+non linear : tree , graphs
+
+**What is Big-(O)-notation?
+used to describe the complexity of an algorithm
+
+**Outlined different kind of sorting algorithm with time complexity?
+Insertion sort,Selection sort,Merge sort,Heapsort,Quicksort,Bubble sort,Shellsort,Comb sort
 
 Draw a table with time complexity in which it will summarize all the data structure feature's advantages and disadvantages.
   a)In terms of Accessing element.

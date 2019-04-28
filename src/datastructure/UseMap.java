@@ -1,5 +1,7 @@
 package datastructure;
 
+import java.util.*;
+
 public class UseMap {
 
     public static void main(String[] args) {
@@ -10,6 +12,27 @@ public class UseMap {
          *
          * Use any databases[MongoDB, Oracle, MySql] to store data and retrieve data.
          */
+        List<String> france_region = new ArrayList<String>();
+        List<String> algeria_region = new ArrayList<String>();
+        france_region.add("paris");
+        france_region.add("marseille");
+        algeria_region.add("algiers");
+        algeria_region.add("blida");
+        Map<String, List<String>> list = new HashMap<String, List<String>>();
+         list.put("France",france_region);
+         list.put("Algeria",algeria_region);
+         //Using for each
+        for(Map.Entry key: list.entrySet()){
+            System.out.println(key.getKey()+" "+key.getValue());
+        }
+        //Using iterator
+        Iterator it =list.entrySet().iterator();
+        while(it.hasNext()) {
+            System.out.println(it.next());
+        }
+        System.out.println(" ");
+
+
 
     }
 
